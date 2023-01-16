@@ -77,7 +77,30 @@ def find_duplicate_files(directory):
         pass
     finally:
         popup.Close()
-    return duplicate_files
+    if duplicate_files:
+        layout_result = [[sg.Text('Duplicate Files')],
+                 [sg.Listbox(values=duplicate_files, size=(None, None), key='list')],
+                 [sg.Button('Move'), sg.Button('Merge'), sg.Button('Delete'),sg.Button('Log')],
+                 [sg.Button('Close')]]
+        result_window = sg.Window('Results', layout_result, resizable=True)
+
+        while True:
+            event, values = result_window.Read()
+            if event in (None, 'Close'):
+                result_window.Close()
+                break
+            elif event == 'Move':
+                # code to move the selected file
+                pass
+            elif event == 'Merge':
+                # code to merge the selected file
+                pass
+            elif event == 'Delete':
+                # code to delete the selected file
+                pass
+            elif event == 'Log':
+                # code to log the activity
+                pass
 
 
            
